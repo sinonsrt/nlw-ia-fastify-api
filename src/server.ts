@@ -3,10 +3,15 @@ import { fastify } from 'fastify';
 import { getAllPromptRoute } from './routes/get-all-prompts';
 import { uploadVideoRoute } from './routes/upload-video';
 import { createTranscriptionRoutes } from './routes/create-transcription';
+import fastifyCors from '@fastify/cors';
 
 dotenv.config();
 
 const app = fastify();
+
+app.register(fastifyCors, {
+  origin: '*',
+});
 
 app.register(getAllPromptRoute);
 app.register(uploadVideoRoute);

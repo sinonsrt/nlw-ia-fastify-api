@@ -26,7 +26,7 @@ export const uploadVideoRoute = async (app: FastifyInstance) => {
     const { file, filename } = data;
 
     const extension = path.extname(filename);
-    console.log({ extension, filename });
+
     if (extension !== '.mp3') {
       return reply
         .status(400)
